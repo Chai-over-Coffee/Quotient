@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import Header from "@/components/header";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 
 export const metadata = {
   title: "Quotient",
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
+            <ConvexClientProvider>
         {/* Header */}
         <Header />
 
@@ -36,6 +38,7 @@ export default function RootLayout({ children }) {
           <div className="text-sm text-gray-400">Made by Ayush Ranjan!</div>
         </footer>
          </main>
+         </ConvexClientProvider>
          </ThemeProvider>
       </body>
     </html>
