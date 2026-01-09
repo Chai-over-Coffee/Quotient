@@ -30,14 +30,16 @@ const Header = () => {
 
             {/* Right Side Actions */}
             <div className='flex items-center'>
+            <SignedIn>
+              {/* Create Event Button */}
+              <UserButton/>
+            </SignedIn>
+
               <SignedOut>
               <SignInButton mode='modal'>
                 <Button size='sm'>Sign In</Button>
               </SignInButton>       
             </SignedOut>
-            <SignedIn>
-              <UserButton/>
-            </SignedIn>
             </div>
         </div>
 
