@@ -13,7 +13,7 @@ const Header = () => {
 
   const { isLoading } = useStoreUser()
 
-  const [showUpgradeModal, setShowUpgradeModal] = useState();
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   return (
     <>
@@ -41,7 +41,7 @@ const Header = () => {
             {/* Right Side Actions */}
             <div className='flex items-center'>
             
-              <Button variant={"ghost"} size='sm' onClick={setShowUpgradeModal}>
+              <Button variant={"ghost"} size='sm' onClick={() => setShowUpgradeModal(true)}>
                 Pricing
               </Button>
 
