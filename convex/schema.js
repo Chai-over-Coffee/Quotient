@@ -1,6 +1,5 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
-import { register } from "next/dist/next-devtools/userspace/pages/pages-dev-overlay-setup";
 
 export default defineSchema({
     // Users table to store user profiles
@@ -49,11 +48,12 @@ export default defineSchema({
         timezone: v.string(),
 
         // Location
-        locationTType: v.union(v.literal("physical"), v.literal("online")),
+        locationType: v.union(v.literal("physical"), v.literal("online")),
         venue: v.optional(v.string()),
         address: v.optional(v.string()),
         city: v.string(),
         state: v.optional(v.string()),
+        country: v.string(),
 
         // Capacity & Ticketing
         capacity: v.number(),
@@ -73,7 +73,7 @@ export default defineSchema({
     .index("by_category", ["category"])
     .index("by_start_date", ["startDate"])
     .index("by_slug", ["slug"])
-    .searchIndex("search_title", { searchField: "title "}),
+    .searchIndex("search_title", { searchField: "title" }),
 
     registrations: defineTable({
         eventId: v.id("events"),
